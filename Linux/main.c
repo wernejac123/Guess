@@ -1,28 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
+#include "version.h"
 
 #define MAX_STRING 30
 
-int rand_num(int lower, int upper){
+static inline int rand_num(int lower, int upper){
 	return ((rand() % (upper - lower + 1)) + lower);
 }
 
-int main(){
+int main(int argc, char *argv[]){
+   	system("clear");
+
+	if((argc == 2) && ((strcmp(argv[1],"-v") == 0) || (strcmp(argv[1], "--version") == 0))){
+		printf("%s\n", VERSION);
+		exit(0);
+	}
+
 	srand((unsigned int)time(NULL)); //seed for random # 
 	//use current time
 
 	char input[MAX_STRING];
-	int guess, secret_num = rand_num(1, 100);
-	system("clear");
+	unsigned guess, secret_num = (unsigned)rand_num(1, 100);
+
 	printf("Guess the number!\n");
 	//printf("secret number is %d\n", secret_num);
 
 	while(1){
 		printf("Please input your guess: ");
 		fgets(input, sizeof(input), stdin);
-		guess = atoi(input);
-		printf("You guessed: %d\n", guess);
+		guess = (unsigned)atoi(input);
+		printf("You guessed: %u\n", guess);
 
 		if(guess < secret_num)
 			printf("Too small!\n");
