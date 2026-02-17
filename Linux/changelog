@@ -1,7 +1,0 @@
-Guess 1.0
-	Linux:
-		-change to -O2 optimization
-		-change rand_num() to static inline int rand_num(int lower, int upper) 
-		-add version.h (version controlled)
-		-add "-v" & "--version" arguments
-		-change guess & secret_num to unsigned
