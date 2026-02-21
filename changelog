@@ -1,0 +1,6 @@
+-add version.h
+-use my shared library librand.so
+-use macro SEED() from rand.h
+-replace shell script with Makefile
+-use fisher-yates shuffle algorithm 
+-dropping supoport for FreeDOS for now until I figure out libraries in watcomc 
